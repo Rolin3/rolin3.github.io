@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Play Tile Stack: The Complete Beginner Guide</title>
+  <meta name="description" content="Learn how to play Tile Stack step by step: board rules, the seven slots, Undo and Shuffle, your first five moves, and how progress saving works. Written by the game's developer.">
+  <meta name="author" content="Rolin3">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="How to Play Tile Stack: The Complete Beginner Guide">
+  <meta property="og:description" content="Learn how to play Tile Stack step by step: board rules, the seven slots, Undo and Shuffle, your first five moves, and how progress saving works. Written by the game's developer.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rolin3.github.io/how-to-play-tile-stack.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://rolin3.github.io/how-to-play-tile-stack.html">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Play Tile Stack","description":"A complete beginner guide to playing Tile Stack, the free online match-3 puzzle game.","step":[{"@type":"HowToStep","name":"Scan the board","text":"Identify open tiles that cover the most other tiles."},{"@type":"HowToStep","name":"Collect toward existing triples","text":"Prefer tiles that extend partial triples already in your slots."},{"@type":"HowToStep","name":"Clear all tiles","text":"Empty the board before the seven slots fill to win the level."}]}</script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6156180492735752" crossorigin="anonymous"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.75;
+    }
+    a { color: #ff8fa0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    nav.site-nav {
+      background: #111122;
+      border-bottom: 1px solid #2a2a4a;
+      padding: 14px 20px;
+      text-align: center;
+    }
+    nav.site-nav a { color: #b0b0d0; margin: 0 14px; font-size: 15px; }
+    nav.site-nav a:hover { color: #ff6b81; }
+    header.hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      padding: 56px 20px 40px;
+      text-align: center;
+      border-bottom: 1px solid #2a2a4a;
+    }
+    header.hero h1 {
+      font-size: 36px;
+      background: linear-gradient(90deg, #ff6b81, #ffca28);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    header.hero .kicker {
+      display: inline-block;
+      background: #16213e;
+      border: 1px solid #2a2a4a;
+      color: #ffca28;
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    header.hero p { color: #b0b0d0; max-width: 620px; margin: 0 auto; font-size: 18px; }
+    .meta { color: #8080a8; font-size: 14px; margin-top: 14px; }
+    .container { max-width: 800px; margin: 0 auto; padding: 48px 20px; }
+    article h2 { font-size: 26px; color: #ffca28; margin: 36px 0 14px; }
+    article h3 { font-size: 20px; color: #ff8fa0; margin: 26px 0 10px; }
+    article p { margin-bottom: 16px; color: #c8c8e0; }
+    article ul, article ol { margin: 0 0 16px 26px; color: #c8c8e0; }
+    article li { margin-bottom: 10px; }
+    article strong { color: #e8e8ff; }
+    .callout {
+      background: #16213e;
+      border-left: 4px solid #ffca28;
+      border-radius: 0 10px 10px 0;
+      padding: 18px 22px;
+      margin: 22px 0;
+      color: #d8d8f0;
+    }
+    .cta-box {
+      background: #16213e;
+      border: 1px solid #2a2a4a;
+      border-radius: 14px;
+      text-align: center;
+      padding: 32px 24px;
+      margin: 44px 0;
+    }
+    .cta-box p { color: #a0a0c8; margin-bottom: 18px; font-size: 17px; }
+    .btn-play {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff6b81, #ff4757);
+      color: #fff !important;
+      padding: 14px 40px;
+      border-radius: 12px;
+      font-size: 19px;
+      font-weight: bold;
+      box-shadow: 0 8px 24px rgba(255, 71, 87, 0.35);
+    }
+    .btn-play:hover { text-decoration: none; transform: translateY(-2px); }
+    .related {
+      background: #111122;
+      border: 1px solid #2a2a4a;
+      border-radius: 14px;
+      padding: 26px 28px;
+      margin: 40px 0;
+    }
+    .related h2 { font-size: 20px; color: #ffca28; margin: 0 0 14px; border: none; padding: 0; }
+    .related ul { margin-left: 22px; }
+    .related li { margin-bottom: 8px; }
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #8080a8;
+      font-size: 14px;
+      background: #111122;
+    }
+    footer a { margin: 0 10px; }
+    @media (max-width: 480px) {
+      header.hero h1 { font-size: 28px; }
+      nav.site-nav a { margin: 0 8px; font-size: 14px; }
+    }
+</style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/">Home</a>
+    <a href="/guide.html">Guide</a>
+    <a href="/blog.html">Updates</a>
+    <a href="/articles.html">Articles</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+  </nav>
+
+  <header class="hero">
+    <div class="kicker">Beginner Guide</div>
+    <h1>How to Play Tile Stack</h1>
+    <p>Everything a new player needs: the rules, the slots, the tools, and a first-move routine that prevents most early losses.</p>
+    <div class="meta">By Rolin3 &middot; September 16, 2026 &middot; 6 min read</div>
+  </header>
+
+  <main class="container">
+    <article>
+
+<p>If you have just opened Tile Stack for the first time, this guide will walk you through
+everything you need to know, from your very first tap to consistently clearing full boards.
+I am the developer of the game, so everything below reflects exactly how the game actually
+works — no guessing, no second-hand tips.</p>
+
+<h2>The Core Idea in One Sentence</h2>
+<p>Tap open tiles to collect them, gather three identical tiles to clear them, and empty the
+entire board before your seven slots fill up.</p>
+<p>That is the whole game. What makes it interesting is that <strong>the order in which you
+remove tiles matters more than which tiles you remove</strong>. A tile buried under two other
+tiles cannot be tapped at all. Every move you make either frees up future moves or quietly
+consumes the space you will need later.</p>
+
+<h2>The Board, the Slots, and the Rules</h2>
+<h3>The stacked board</h3>
+<p>Tiles are arranged in overlapping layers. A tile is <strong>open</strong> only when no other
+tile sits on top of it. Open tiles can be tapped; covered tiles cannot. As you remove tiles
+from the top, the tiles underneath are gradually revealed.</p>
+<h3>Your seven slots</h3>
+<p>At the bottom of the screen you have a row of seven slots. Every tile you tap moves into a
+slot. When three identical tiles meet in the slots, they clear automatically and free up their
+space. If all seven slots fill with tiles that do not form a triple, the level ends immediately.</p>
+<div class="callout"><strong>The single most important number in the game is seven.</strong>
+Every decision you make should be measured against it: how many distinct tile types are
+currently sitting in your slots, and how much room is left before you hit the limit?</div>
+<h3>Winning and losing</h3>
+<p>You win by clearing every tile from the board. You lose the moment the seventh slot fills
+without forming a match. There is no timer — the game is pure planning, not speed. You can take
+as long as you like between moves.</p>
+
+<h2>Your First Five Moves: A Recommended Routine</h2>
+<p>New players often tap the first matching pair they see. That habit wins the first few levels
+and then silently stops working. Instead, use this routine for the first moves of any level:</p>
+<ol>
+  <li><strong>Scan before you tap.</strong> Look at the whole board and identify which tiles are
+  covering the most other tiles. Those are your priority targets.</li>
+  <li><strong>Count the visible triples.</strong> Before moving, check whether your slots already
+  hold one or two tiles of the type you are about to collect. Collecting toward an existing
+  partial triple is almost always better than starting a new one.</li>
+  <li><strong>Prefer central and lower tiles.</strong> Tiles near the middle and bottom of a stack
+  tend to unlock the most material. Clearing them early opens up the board.</li>
+  <li><strong>Keep slot types low.</strong> Try to hold at most two or three different tile types
+  in your slots at once. If you are holding five types, you are five bad draws away from a loss.</li>
+  <li><strong>Only then tap.</strong> The scan takes ten seconds and prevents most losing positions.</li>
+</ol>
+
+<h2>The Tools: Undo, Shuffle, and the BGM Toggle</h2>
+<h3>Undo</h3>
+<p>Undo reverses your last tap, returning the tile from your slots to the board. Use it the moment
+you notice a mis-tap, before making any follow-up move. Undo is cheapest to use early; the longer
+you wait, the more a single bad tile costs you.</p>
+<h3>Shuffle</h3>
+<p>Shuffle rearranges the remaining board tiles. It does not touch your slots. It is your escape
+hatch when the visible tiles contain nothing useful. Save it for genuine dead ends rather than
+spending it out of impatience — a shuffled board is only helpful if you have slot space to
+exploit it.</p>
+<h3>Background music</h3>
+<p>The 8-bit style BGM can be toggled from the in-game settings. Your preference is saved locally
+in your browser, so it persists between sessions on the same device.</p>
+
+<h2>Progress That Persists</h2>
+<p>Tile Stack saves your level progress, score, and settings in your browser's local storage.
+Close the tab, come back tomorrow, and the game resumes where you left off — as long as you
+return on the same browser and device. Clearing your browser data resets your progress, so
+keep that in mind before running any cleanup tools.</p>
+
+<h2>What to Learn Next</h2>
+<p>Once the basic routine above feels natural, you are ready for the deeper layer of the game:
+reading the stack itself. My <a href="/guide.html">strategy guide</a> covers reading tile
+dependencies, planning three moves ahead, and the exact situations where Shuffle becomes
+mandatory rather than optional. If you keep hitting the seven-slot wall, the article on
+<a href="/slot-management-mastery.html">slot management</a> is written specifically for you.</p>
+
+    </article>
+    <div class="related"><h2>Keep Reading</h2><ul><li><a href="/guide.html">Tile Stack Strategy Guide</a></li><li><a href="/slot-management-mastery.html">Slot Management Mastery</a></li><li><a href="/common-beginner-mistakes.html">10 Common Beginner Mistakes</a></li></ul></div>
+    <div class="cta-box">
+      <p>Ready to put these ideas into practice?</p>
+      <a class="btn-play" href="/tile-stack-game/">&#x25B6; PLAY TILE STACK FREE</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      <a href="/">Home</a>
+      <a href="/guide.html">Guide</a>
+      <a href="/articles.html">Articles</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy Policy</a>
+    </p>
+    <p>&copy; 2026 Tile Stack. Free online puzzle game. Hosted with GitHub Pages.</p>
+  </footer>
+</body>
+</html>

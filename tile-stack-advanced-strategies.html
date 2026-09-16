@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tile Stack Advanced Strategies: Dependency Reading, Endgame Plans & Shuffle Timing</title>
+  <meta name="description" content="Advanced Tile Stack strategy: think in dependency chains, balance present matches against future board, count tile types, and execute the endgame bottom-layer check.">
+  <meta name="author" content="Rolin3">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Tile Stack Advanced Strategies: Dependency Reading, Endgame Plans & Shuffle Timing">
+  <meta property="og:description" content="Advanced Tile Stack strategy: think in dependency chains, balance present matches against future board, count tile types, and execute the endgame bottom-layer check.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rolin3.github.io/tile-stack-advanced-strategies.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://rolin3.github.io/tile-stack-advanced-strategies.html">
+  
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6156180492735752" crossorigin="anonymous"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.75;
+    }
+    a { color: #ff8fa0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    nav.site-nav {
+      background: #111122;
+      border-bottom: 1px solid #2a2a4a;
+      padding: 14px 20px;
+      text-align: center;
+    }
+    nav.site-nav a { color: #b0b0d0; margin: 0 14px; font-size: 15px; }
+    nav.site-nav a:hover { color: #ff6b81; }
+    header.hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      padding: 56px 20px 40px;
+      text-align: center;
+      border-bottom: 1px solid #2a2a4a;
+    }
+    header.hero h1 {
+      font-size: 36px;
+      background: linear-gradient(90deg, #ff6b81, #ffca28);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    header.hero .kicker {
+      display: inline-block;
+      background: #16213e;
+      border: 1px solid #2a2a4a;
+      color: #ffca28;
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    header.hero p { color: #b0b0d0; max-width: 620px; margin: 0 auto; font-size: 18px; }
+    .meta { color: #8080a8; font-size: 14px; margin-top: 14px; }
+    .container { max-width: 800px; margin: 0 auto; padding: 48px 20px; }
+    article h2 { font-size: 26px; color: #ffca28; margin: 36px 0 14px; }
+    article h3 { font-size: 20px; color: #ff8fa0; margin: 26px 0 10px; }
+    article p { margin-bottom: 16px; color: #c8c8e0; }
+    article ul, article ol { margin: 0 0 16px 26px; color: #c8c8e0; }
+    article li { margin-bottom: 10px; }
+    article strong { color: #e8e8ff; }
+    .callout {
+      background: #16213e;
+      border-left: 4px solid #ffca28;
+      border-radius: 0 10px 10px 0;
+      padding: 18px 22px;
+      margin: 22px 0;
+      color: #d8d8f0;
+    }
+    .cta-box {
+      background: #16213e;
+      border: 1px solid #2a2a4a;
+      border-radius: 14px;
+      text-align: center;
+      padding: 32px 24px;
+      margin: 44px 0;
+    }
+    .cta-box p { color: #a0a0c8; margin-bottom: 18px; font-size: 17px; }
+    .btn-play {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff6b81, #ff4757);
+      color: #fff !important;
+      padding: 14px 40px;
+      border-radius: 12px;
+      font-size: 19px;
+      font-weight: bold;
+      box-shadow: 0 8px 24px rgba(255, 71, 87, 0.35);
+    }
+    .btn-play:hover { text-decoration: none; transform: translateY(-2px); }
+    .related {
+      background: #111122;
+      border: 1px solid #2a2a4a;
+      border-radius: 14px;
+      padding: 26px 28px;
+      margin: 40px 0;
+    }
+    .related h2 { font-size: 20px; color: #ffca28; margin: 0 0 14px; border: none; padding: 0; }
+    .related ul { margin-left: 22px; }
+    .related li { margin-bottom: 8px; }
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #8080a8;
+      font-size: 14px;
+      background: #111122;
+    }
+    footer a { margin: 0 10px; }
+    @media (max-width: 480px) {
+      header.hero h1 { font-size: 28px; }
+      nav.site-nav a { margin: 0 8px; font-size: 14px; }
+    }
+</style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/">Home</a>
+    <a href="/guide.html">Guide</a>
+    <a href="/blog.html">Updates</a>
+    <a href="/articles.html">Articles</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+  </nav>
+
+  <header class="hero">
+    <div class="kicker">Advanced Strategy</div>
+    <h1>Advanced Strategies for Consistent Clears</h1>
+    <p>Dependency chains, the two-track plan, type counting, and the endgame habits that separate consistent clearers from streaky ones.</p>
+    <div class="meta">By Rolin3 &middot; September 16, 2026 &middot; 6 min read</div>
+  </header>
+
+  <main class="container">
+    <article>
+
+<p>This article is for players who can clear the early levels comfortably but start failing
+around the mid-game, where the stacks get deeper and the tile variety widens. Everything here
+comes from my own playtesting during development — including the mistakes I made that forced
+me to rebalance the game twice.</p>
+
+<h2>Think in Dependencies, Not in Matches</h2>
+<p>Beginners look for matching tiles. Advanced players look at <strong>dependency chains</strong>:
+which tiles are locked beneath which. Before you tap anything, ask a different question —
+not "where is the third strawberry?" but "which tap unlocks the most future taps?"</p>
+<p>A useful mental exercise: for each open tile, estimate how many tiles sit beneath it. Tapping
+the tile that covers four others is worth more than tapping a tile that covers one, even when
+the covering tile does not advance any current match. In Tile Stack, <strong>opening the board
+is a resource, just like slot space.</strong></p>
+
+<h2>The Two-Track Plan: Present Match vs. Future Board</h2>
+<p>Every move serves one of two tracks:</p>
+<ul>
+  <li><strong>Track A — the present match:</strong> collecting tiles that complete an existing
+  partial triple in your slots.</li>
+  <li><strong>Track B — the future board:</strong> removing covering tiles so that more options
+  exist three moves from now.</li>
+</ul>
+<p>Weak players play Track A exclusively and get stuck when their partial triples are buried.
+Strong players alternate: one move for the slots, one move for the board. When I playtest new
+levels, my internal rhythm is roughly two Track B moves for every Track A move in the opening
+phase, shifting toward Track A as the board empties.</p>
+
+<h2>Counting Tile Types: The Discipline That Wins Levels</h2>
+<p>Each level contains a fixed, known quantity of every tile type — always a multiple of three.
+This means <strong>the game is fully deterministic in its information</strong>: nothing is hidden
+except covered tiles, and even those get revealed predictably.</p>
+<p>Use that fact. Keep a running count of which types you have fully cleared. If all three
+umbrella tiles are already gone, you will never need to hold an umbrella again — every remaining
+umbrella-shaped hesitation is wasted attention. Recount the board every few moves and prune the
+types you no longer need to think about.</p>
+
+<h2>Reading the Endgame</h2>
+<p>Levels are designed so the final third is where most losses happen. Here is the pattern:
+players clear the comfortable top layers quickly, hold four or five slot types "temporarily,"
+and then discover the bottom layer hides triples of types they have no room for.</p>
+<p>The professional habit is the <strong>bottom-layer check</strong>: whenever fewer than
+one-third of the tiles remain, pause and study which types are still buried. If a buried type
+already has two copies in your slots, that is your next priority — dig to it deliberately
+instead of clearing whatever happens to be convenient.</p>
+
+<h2>When Shuffle Becomes Mandatory</h2>
+<p>Most players Shuffle too early. The correct trigger is precise: shuffle when
+<strong>no open tile can complete any partial triple in your slots</strong> AND your slot
+occupancy is at four or more tiles. Shuffling at two or three occupied slots usually wastes the
+effect, because you still had room to dig manually. Shuffling at six or seven occupied slots is
+usually too late, because the shuffle cannot clear your slots — it only rearranges the board.</p>
+<div class="callout"><strong>Key insight:</strong> Shuffle changes the board, not your slots.
+Its value depends entirely on how much slot freedom you preserved before using it.</div>
+
+<h2>Undo Chains and Cost Accounting</h2>
+<p>Undo has no stated limit, but it has a real cost: every undo that follows a chain of moves
+you refuse to reverse is nearly worthless. If move 5 was the mistake, undoing move 7 and
+replaying it accomplishes nothing. When you realize you are in a bad line, unwind
+<strong>all the way back to the first questionable tap</strong>, not just the last one.</p>
+
+<h2>A Complete Mid-Game Walkthrough Pattern</h2>
+<p>Here is the skeleton I use when playtesting the harder levels, condensed:</p>
+<ol>
+  <li>Opening: clear the highest-coverage tiles first, keeping slots at two types maximum.</li>
+  <li>Middle: complete every partial triple the board offers freely; dig toward the two or
+  three types with the deepest stacks.</li>
+  <li>Pre-endgame: run the bottom-layer check and commit slots only to buried types.</li>
+  <li>Endgame: with six or fewer types remaining, count every type's remaining copies and take
+  them in an order that never holds more than three slot types at once.</li>
+</ol>
+<p>Master this pattern and the difficulty curve stops feeling like a wall and starts feeling
+like a slope you can climb.</p>
+
+    </article>
+    <div class="related"><h2>Keep Reading</h2><ul><li><a href="/how-to-play-tile-stack.html">How to Play Tile Stack: The Complete Beginner Guide</a></li><li><a href="/slot-management-mastery.html">Slot Management Mastery</a></li><li><a href="/when-to-use-undo-and-shuffle.html">When to Use Undo and Shuffle</a></li></ul></div>
+    <div class="cta-box">
+      <p>Ready to put these ideas into practice?</p>
+      <a class="btn-play" href="/tile-stack-game/">&#x25B6; PLAY TILE STACK FREE</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      <a href="/">Home</a>
+      <a href="/guide.html">Guide</a>
+      <a href="/articles.html">Articles</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy Policy</a>
+    </p>
+    <p>&copy; 2026 Tile Stack. Free online puzzle game. Hosted with GitHub Pages.</p>
+  </footer>
+</body>
+</html>
